@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named my_opengl_project
+# Target rules for targets named my_glfw_glew_project
 
 # Build rule for target.
-my_opengl_project: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 my_opengl_project
-.PHONY : my_opengl_project
+my_glfw_glew_project: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 my_glfw_glew_project
+.PHONY : my_glfw_glew_project
 
 # fast build rule for target.
-my_opengl_project/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/build
-.PHONY : my_opengl_project/fast
+my_glfw_glew_project/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_glfw_glew_project.dir/build.make CMakeFiles/my_glfw_glew_project.dir/build
+.PHONY : my_glfw_glew_project/fast
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_glfw_glew_project.dir/build.make CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -142,7 +142,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_glfw_glew_project.dir/build.make CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -150,7 +150,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_glfw_glew_project.dir/build.make CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... my_opengl_project"
+	@echo "... my_glfw_glew_project"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

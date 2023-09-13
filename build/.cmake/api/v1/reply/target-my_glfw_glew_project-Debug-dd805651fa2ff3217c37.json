@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "my_opengl_project"
+			"path" : "my_glfw_glew_project"
 		}
 	],
 	"backtrace" : 1,
@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 5,
+				"line" : 9,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 9,
+				"line" : 11,
 				"parent" : 0
 			}
 		]
@@ -52,7 +52,7 @@
 			]
 		}
 	],
-	"id" : "my_opengl_project::@6890427a1f51a3e7e1df",
+	"id" : "my_glfw_glew_project::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -62,24 +62,32 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-rdynamic",
+				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "-lglfw",
-				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
 				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLEW.so",
 				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libglfw.so.3.3",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLX.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libOpenGL.so",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "my_opengl_project",
-	"nameOnDisk" : "my_opengl_project",
+	"name" : "my_glfw_glew_project",
+	"nameOnDisk" : "my_glfw_glew_project",
 	"paths" : 
 	{
 		"build" : ".",

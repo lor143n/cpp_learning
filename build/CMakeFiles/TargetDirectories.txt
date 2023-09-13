@@ -1,3 +1,3 @@
-/home/lor3n/dev/cpp_learning/build/CMakeFiles/my_opengl_project.dir
+/home/lor3n/dev/cpp_learning/build/CMakeFiles/my_glfw_glew_project.dir
 /home/lor3n/dev/cpp_learning/build/CMakeFiles/edit_cache.dir
 /home/lor3n/dev/cpp_learning/build/CMakeFiles/rebuild_cache.dir
