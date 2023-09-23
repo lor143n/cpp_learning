@@ -1,8 +1,50 @@
 #define GLEW_STATIC
 
-#include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+
+#include <iostream>
+#include <fstream>
+
+
+struct Shaders{
+
+    std::string vertexShader;
+    std::string fragmentShader;
+};
+
+
+Shaders OpenAndReadShaders(std::string vertexPath, std::string fragmentPath){
+
+    std::string vertexShader;
+    std::string fragmentShader;
+
+    std::ifstream vertexFile;
+    std::ifstream fragmentFile;
+
+    vertexFile.open(vertexPath);
+    fragmentFile.open(fragmentPath);
+
+    if(!vertexFile.is_open()){
+
+        std::cout << "wrong path!";
+    }
+
+    vertexShader.assign(
+        (std::istreambuf_iterator<char>(vertexFile)),
+        (std::istreambuf_iterator<char>())
+    );
+
+    fragmentShader.assign(
+        (std::istreambuf_iterator<char>(fragmentFile)),
+        (std::istreambuf_iterator<char>())
+    );
+
+    std::cout << vertexShader;
+    std::cout << fragmentShader;
+
+    return {vertexShader, fragmentShader};
+}
 
 
 static unsigned int CompileShader(unsigned int type, const std::string& source){
@@ -102,29 +144,11 @@ int main(){
     //Every vertex has a bunch of attributes, in this case we only the position
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
 
-    //GLSL language
-    std::string vertexShader = 
-        "#version 330 core"
-        "\n"
-        "layout(location = 0) in vec4 position;"
-        "\n"
-        "void main()\n"
-        "{\n"
-        "   gl_Position = position;\n"
-        "}\n";
-
-    std::string fragmentShader = 
-        "#version 330 core"
-        "\n"
-        "layout(location = 0) out vec4 color;"
-        "\n"
-        "void main()\n"
-        "{\n"
-        "   color = vec4(1.0, 0.0, 0.0, 1.0);\n"
-        "}\n";
-
-    unsigned int shaders = CreateShader(vertexShader, fragmentShader);
-    glUseProgram(shaders);
+    Shaders myShaders = OpenAndReadShaders("/home/lor3n/dev/cpp_learning/res/shaders/vertex.shader","/home/lor3n/dev/cpp_learning/res/shaders/fragment.shader");
+    
+    
+    //unsigned int shaders = CreateShader(myShaders.vertexShader, myShaders.fragmentShader);
+    //glUseProgram(shaders);
 
     // Ciclo principale della finestra
     while (!glfwWindowShouldClose(window)) {
@@ -140,7 +164,7 @@ int main(){
         glfwPollEvents();
     }
 
-    glDeleteShader(shaders);
+    //glDeleteProgram(shaders);
 
     // Termina GLFW
     glfwTerminate();
