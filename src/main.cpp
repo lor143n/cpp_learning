@@ -14,7 +14,7 @@ struct Shaders{
 };
 
 
-Shaders OpenAndReadShaders(std::string vertexPath, std::string fragmentPath){
+Shaders OpenAndReadShaders(const std::string& vertexPath, const std::string& fragmentPath){
 
     std::string vertexShader;
     std::string fragmentShader;
@@ -39,9 +39,6 @@ Shaders OpenAndReadShaders(std::string vertexPath, std::string fragmentPath){
         (std::istreambuf_iterator<char>(fragmentFile)),
         (std::istreambuf_iterator<char>())
     );
-
-    std::cout << vertexShader;
-    std::cout << fragmentShader;
 
     return {vertexShader, fragmentShader};
 }
@@ -99,15 +96,16 @@ static unsigned int CreateShader(const std::string& vertexShader,const std::stri
 int main(){
 
     // Inizializzazione di GLFW
-    if (!glfwInit()) {
-        std::cerr << "Errore: impossibile inizializzare GLFW" << std::endl;
+    int ret = glfwInit();
+    if (!ret) {
+        std::cerr << "Error: can't initialize GLFW" << std::endl;
         return -1;
     }
 
     // Crea una finestra GLFW
-    GLFWwindow* window = glfwCreateWindow(800, 600, "Triangolo Colorato", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(800, 600, "Colored Triangle", nullptr, nullptr);
     if (!window) {
-        std::cerr << "Errore: impossibile creare una finestra GLFW" << std::endl;
+        std::cerr << "Error: can't create the window" << std::endl;
         glfwTerminate();
         return -1;
     }
@@ -117,7 +115,7 @@ int main(){
 
     // Inizializza GLEW per caricare le estensioni OpenGL
     if (glewInit() != GLEW_OK) {
-        std::cerr << "Errore: impossibile inizializzare GLEW" << std::endl;
+        std::cerr << "Error: can't initialize GLEW" << std::endl;
         glfwTerminate();
         return -1;
     }
@@ -131,13 +129,14 @@ int main(){
     };
 
     /*
-    Creazione di un buffer (blocco di memoria riservata), selezione del buffer da usare (binding), allocazione dei dati
+    Creazione di un buffer (blocco di memoria riservata), selezione del buffer da usare (binding), allocazione dei vertex
     */
 
     unsigned int buffer;
     glGenBuffers(1, &buffer);
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
     glBufferData(GL_ARRAY_BUFFER, 6*sizeof(float), positions, GL_STATIC_DRAW);
+
 
     //Every attribute has to be enabled (OpenGL works has a state machine so not matter the order)
     glEnableVertexAttribArray(0);
@@ -146,9 +145,8 @@ int main(){
 
     Shaders myShaders = OpenAndReadShaders("/home/lor3n/dev/cpp_learning/res/shaders/vertex.shader","/home/lor3n/dev/cpp_learning/res/shaders/fragment.shader");
     
-    
-    //unsigned int shaders = CreateShader(myShaders.vertexShader, myShaders.fragmentShader);
-    //glUseProgram(shaders);
+    unsigned int shaders = CreateShader(myShaders.vertexShader, myShaders.fragmentShader);
+    glUseProgram(shaders);
 
     // Ciclo principale della finestra
     while (!glfwWindowShouldClose(window)) {
@@ -164,7 +162,7 @@ int main(){
         glfwPollEvents();
     }
 
-    //glDeleteProgram(shaders);
+    glDeleteProgram(shaders);
 
     // Termina GLFW
     glfwTerminate();
