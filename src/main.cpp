@@ -6,6 +6,28 @@
 #include <iostream>
 #include <fstream>
 
+#define ASSERT(x) if (!(x)) __builtin_trap();
+#define GLCall(x) GLClearError();\
+    x;\
+    ASSERT(GLLogCall(#x, __FILE__, __LINE__))
+ 
+static void GLClearError(){
+
+
+    while(glGetError() != GL_NO_ERROR);
+
+}
+
+static bool GLLogCall(const char* function, const char* file, int line){
+
+    while(GLenum error = glGetError()){
+        std::cout <<"[OpenGL Error] (" << error << "): " << function << " " <<file << ": " <<line << std::endl;
+        return false;
+    }
+    return true;
+
+}
+
 
 struct Shaders{
 
@@ -113,6 +135,8 @@ int main(){
     // Fai in modo che il contesto OpenGL creato dalla finestra sia il contesto corrente
     glfwMakeContextCurrent(window);
 
+    glfwSwapInterval(1);
+
     // Inizializza GLEW per caricare le estensioni OpenGL
     if (glewInit() != GLEW_OK) {
         std::cerr << "Error: can't initialize GLEW" << std::endl;
@@ -120,41 +144,60 @@ int main(){
         return -1;
     }
 
-    //Vertex che vogliamo memorizzare ed utilizzare
+    //BUFFER START
 
-    float positions[6] = {
-        -0.5f, -0.5f,
-         0.0f, 0.5f,
-         0.5f, -0.5f
+    float positions[8] = {
+        -0.5f, -0.5f, //0
+         0.5f, -0.5f, //1
+        0.5f, 0.5f,   //2
+         -0.5f, 0.5f, //3  
     };
 
-    /*
-    Creazione di un buffer (blocco di memoria riservata), selezione del buffer da usare (binding), allocazione dei vertex
-    */
+    unsigned int indices[12] = {
+        0, 1, 2,
+        2, 3, 0,
+    };
 
     unsigned int buffer;
-    glGenBuffers(1, &buffer);
-    glBindBuffer(GL_ARRAY_BUFFER, buffer);
-    glBufferData(GL_ARRAY_BUFFER, 6*sizeof(float), positions, GL_STATIC_DRAW);
+    GLCall(glGenBuffers(1, &buffer));
+    GLCall(glBindBuffer(GL_ARRAY_BUFFER, buffer));
+    GLCall(glBufferData(GL_ARRAY_BUFFER, 4*2*sizeof(float), positions, GL_STATIC_DRAW));
 
+    GLCall(glEnableVertexAttribArray(0));
+    GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0));
 
-    //Every attribute has to be enabled (OpenGL works has a state machine so not matter the order)
-    glEnableVertexAttribArray(0);
-    //Every vertex has a bunch of attributes, in this case we only the position
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
+    unsigned int ibo;
+    GLCall(glGenBuffers(1, &ibo));
+    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo));
+    GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, 3*2*sizeof(unsigned int), indices, GL_STATIC_DRAW));
+
+    //BUFFER END
 
     Shaders myShaders = OpenAndReadShaders("/home/lor3n/dev/cpp_learning/res/shaders/vertex.shader","/home/lor3n/dev/cpp_learning/res/shaders/fragment.shader");
     
     unsigned int shaders = CreateShader(myShaders.vertexShader, myShaders.fragmentShader);
-    glUseProgram(shaders);
+    GLCall(glUseProgram(shaders));
 
-    // Ciclo principale della finestra
+    int location = glGetUniformLocation(shaders, "u_Color");
+    ASSERT(location != -1);
+    GLCall(glUniform4f(location, 0.8f, 0.3f, 0.8f, 1.0f));
+    
+    float r = 0.0f;
+    float increment = 0.01f;
     while (!glfwWindowShouldClose(window)) {
         
         glClear(GL_COLOR_BUFFER_BIT);
 
-        //questa e' la draw call del buffer selezionato (binded)
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        if(r > 1.0f){
+            increment = -0.01f;
+        } else if (r < 0.0f){
+            increment = 0.01f;
+        }
+
+        r += increment;
+
+        GLCall(glUniform4f(location, r, 0.3f, 0.8f, 1.0f));
+        GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
         // Swap dei buffer
         glfwSwapBuffers(window);
