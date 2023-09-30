@@ -69,35 +69,83 @@ include CMakeFiles/my_glfw_glew_project.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/my_glfw_glew_project.dir/flags.make
 
-CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o: CMakeFiles/my_glfw_glew_project.dir/flags.make
-CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o: ../src/main.cpp
-CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o: CMakeFiles/my_glfw_glew_project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lor3n/dev/cpp_learning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o -MF CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o.d -o CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o -c /home/lor3n/dev/cpp_learning/src/main.cpp
+CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o: CMakeFiles/my_glfw_glew_project.dir/flags.make
+CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o: ../src/Application.cpp
+CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o: CMakeFiles/my_glfw_glew_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lor3n/dev/cpp_learning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o -MF CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o.d -o CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o -c /home/lor3n/dev/cpp_learning/src/Application.cpp
 
-CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lor3n/dev/cpp_learning/src/main.cpp > CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.i
+CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lor3n/dev/cpp_learning/src/Application.cpp > CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.i
 
-CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lor3n/dev/cpp_learning/src/main.cpp -o CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.s
+CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lor3n/dev/cpp_learning/src/Application.cpp -o CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.s
+
+CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o: CMakeFiles/my_glfw_glew_project.dir/flags.make
+CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o: ../src/Renderer.cpp
+CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o: CMakeFiles/my_glfw_glew_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lor3n/dev/cpp_learning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o -MF CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o.d -o CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o -c /home/lor3n/dev/cpp_learning/src/Renderer.cpp
+
+CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lor3n/dev/cpp_learning/src/Renderer.cpp > CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.i
+
+CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lor3n/dev/cpp_learning/src/Renderer.cpp -o CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.s
+
+CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o: CMakeFiles/my_glfw_glew_project.dir/flags.make
+CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o: ../src/VertexBuffer.cpp
+CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o: CMakeFiles/my_glfw_glew_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lor3n/dev/cpp_learning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o -MF CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o.d -o CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o -c /home/lor3n/dev/cpp_learning/src/VertexBuffer.cpp
+
+CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lor3n/dev/cpp_learning/src/VertexBuffer.cpp > CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.i
+
+CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lor3n/dev/cpp_learning/src/VertexBuffer.cpp -o CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.s
+
+CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o: CMakeFiles/my_glfw_glew_project.dir/flags.make
+CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o: ../src/IndexBuffer.cpp
+CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o: CMakeFiles/my_glfw_glew_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lor3n/dev/cpp_learning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o -MF CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o.d -o CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o -c /home/lor3n/dev/cpp_learning/src/IndexBuffer.cpp
+
+CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lor3n/dev/cpp_learning/src/IndexBuffer.cpp > CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.i
+
+CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lor3n/dev/cpp_learning/src/IndexBuffer.cpp -o CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.s
 
 # Object files for target my_glfw_glew_project
 my_glfw_glew_project_OBJECTS = \
-"CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o"
+"CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o" \
+"CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o" \
+"CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o" \
+"CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o"
 
 # External object files for target my_glfw_glew_project
 my_glfw_glew_project_EXTERNAL_OBJECTS =
 
-my_glfw_glew_project: CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o
+my_glfw_glew_project: CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o
+my_glfw_glew_project: CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o
+my_glfw_glew_project: CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o
+my_glfw_glew_project: CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o
 my_glfw_glew_project: CMakeFiles/my_glfw_glew_project.dir/build.make
 my_glfw_glew_project: /usr/lib/x86_64-linux-gnu/libGLEW.so
 my_glfw_glew_project: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 my_glfw_glew_project: /usr/lib/x86_64-linux-gnu/libGLX.so
 my_glfw_glew_project: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 my_glfw_glew_project: CMakeFiles/my_glfw_glew_project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lor3n/dev/cpp_learning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable my_glfw_glew_project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lor3n/dev/cpp_learning/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable my_glfw_glew_project"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_glfw_glew_project.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

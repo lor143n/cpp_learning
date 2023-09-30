@@ -1,7 +1,22 @@
 [
 {
   "directory": "/home/lor3n/dev/cpp_learning/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o -c /home/lor3n/dev/cpp_learning/src/main.cpp",
-  "file": "/home/lor3n/dev/cpp_learning/src/main.cpp"
+  "command": "/usr/bin/g++   -g -o CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o -c /home/lor3n/dev/cpp_learning/src/Application.cpp",
+  "file": "/home/lor3n/dev/cpp_learning/src/Application.cpp"
+},
+{
+  "directory": "/home/lor3n/dev/cpp_learning/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o -c /home/lor3n/dev/cpp_learning/src/Renderer.cpp",
+  "file": "/home/lor3n/dev/cpp_learning/src/Renderer.cpp"
+},
+{
+  "directory": "/home/lor3n/dev/cpp_learning/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o -c /home/lor3n/dev/cpp_learning/src/VertexBuffer.cpp",
+  "file": "/home/lor3n/dev/cpp_learning/src/VertexBuffer.cpp"
+},
+{
+  "directory": "/home/lor3n/dev/cpp_learning/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o -c /home/lor3n/dev/cpp_learning/src/IndexBuffer.cpp",
+  "file": "/home/lor3n/dev/cpp_learning/src/IndexBuffer.cpp"
 }
 ]

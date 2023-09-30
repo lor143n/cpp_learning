@@ -1,6 +1,12 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o"
-  "CMakeFiles/my_glfw_glew_project.dir/src/main.cpp.o.d"
+  "CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o"
+  "CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o.d"
+  "CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o"
+  "CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o.d"
+  "CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o"
+  "CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o.d"
+  "CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o"
+  "CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o.d"
   "my_glfw_glew_project"
   "my_glfw_glew_project.pdb"
 )
