@@ -81,12 +81,12 @@ clean: CMakeFiles/my_glfw_glew_project.dir/clean
 CMakeFiles/my_glfw_glew_project.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_glfw_glew_project.dir/build.make CMakeFiles/my_glfw_glew_project.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_glfw_glew_project.dir/build.make CMakeFiles/my_glfw_glew_project.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lor3n/dev/cpp_learning/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target my_glfw_glew_project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lor3n/dev/cpp_learning/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target my_glfw_glew_project"
 .PHONY : CMakeFiles/my_glfw_glew_project.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/my_glfw_glew_project.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lor3n/dev/cpp_learning/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lor3n/dev/cpp_learning/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/my_glfw_glew_project.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lor3n/dev/cpp_learning/build/CMakeFiles 0
 .PHONY : CMakeFiles/my_glfw_glew_project.dir/rule
