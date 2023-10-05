@@ -2,20 +2,25 @@
 
 #include <vector>
 #include <GL/glew.h>
+#include "Renderer.h"
 
 class VertexBufferElement{
 
-    private:
-
+    public: 
         unsigned int count;
         unsigned int type;
-        bool normalized;
+        unsigned char normalized;
 
+    static unsigned int GetSizeOfType(unsigned int type){
 
-    public:
-
-        VertexBufferElement(const unsigned int count, const unsigned int type, const bool normalized);
-
+        switch(type){
+            case GL_FLOAT:          return 4;
+            case GL_UNSIGNED_INT:   return 4;
+            case GL_UNSIGNED_BYTE:  return 1;
+        }
+        ASSERT(false);
+        return 0;
+    }
 };
 
 class VertexBufferLayout{
@@ -32,15 +37,17 @@ class VertexBufferLayout{
         VertexBufferLayout();
 
         template<typename T>
-        void Push(int count, T type){
+        void Push(unsigned int count, T type){
 
-            norm = false
-            if(type == GL_UNSIGNED_INT) norm = true;
+            bool norm = GL_FALSE;
+            if(type == GL_UNSIGNED_INT){
+                norm = GL_TRUE;
+            } 
 
-            VertexBufferElement vbe(count, type, norm);
+            VertexBufferElement vbe( { count, type, norm } );
             m_Elements.push_back(vbe);
 
-            m_Stride += sizeof(T);
+            m_Stride += VertexBufferElement::GetSizeOfType(T);
         }
 
         inline unsigned int GetStride() const 
