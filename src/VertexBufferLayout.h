@@ -34,7 +34,7 @@ class VertexBufferLayout{
 
     public:
 
-        VertexBufferLayout();
+        VertexBufferLayout() : m_Stride(0) {};
 
         template<typename T>
         void Push(unsigned int count, T type){
@@ -44,10 +44,10 @@ class VertexBufferLayout{
                 norm = GL_TRUE;
             } 
 
-            VertexBufferElement vbe( { count, type, norm } );
+            VertexBufferElement vbe({ count, type, norm });
             m_Elements.push_back(vbe);
 
-            m_Stride += VertexBufferElement::GetSizeOfType(T);
+            m_Stride += VertexBufferElement::GetSizeOfType(type);
         }
 
         inline unsigned int GetStride() const 
@@ -55,7 +55,7 @@ class VertexBufferLayout{
             return m_Stride; 
         }
 
-        inline const std::vector<VertexBufferElement> GetElements() 
+        inline const std::vector<VertexBufferElement>& GetElements() const
         { 
             return m_Elements; 
         }
