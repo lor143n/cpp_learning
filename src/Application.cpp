@@ -129,11 +129,9 @@ int main(){
 
 
     //we create a scope to fix the termination issue due by the glGetError function
-
     {
 
-        //VERTEX INDEX START
-
+        //VERTEX-INDEX DATA START
         float positions[10] = {
             -1.0f, 1.0f,    //0
             1.0f, 1.0f,     //1
@@ -146,25 +144,21 @@ int main(){
             0, 4, 2,
             1, 4, 3
         };
+        //VERTEX-INDEX DATA END
 
-        unsigned int vao;
-        GLCall(glGenVertexArrays(1, &vao));
-        GLCall(glBindVertexArray(vao));
+        //VERTEX ARRAY - VERTEX BUFFER - INDEX ARRAY START
+        VertexBuffer vb(positions, 5 * 2 * sizeof(float));
 
         VertexArray va;
-        VertexBuffer vb(positions, 5 * 2* sizeof(float));
-
         VertexBufferLayout layout;
-        layout.Push(3, GL_FLOAT);
+        layout.Push(2, GL_FLOAT);
         va.AddBuffer(vb, layout);
         va.Bind();
 
         IndexBuffer ib(indices, 6);
-
-        //VERTEX INDEX START
+        //VERTEX ARRAY - VERTEX BUFFER - INDEX ARRAY END
 
         //SHADERS START
-
         Shaders myShaders = OpenAndReadShaders("/home/lor3n/dev/cpp_learning/res/shaders/vertex.shader","/home/lor3n/dev/cpp_learning/res/shaders/fragment.shader");
         
         unsigned int shaders = CreateShader(myShaders.vertexShader, myShaders.fragmentShader);
@@ -174,24 +168,17 @@ int main(){
         ASSERT(location != -1);
         GLCall(glUniform4f(location, 0.8f, 0.3f, 0.8f, 1.0f));
 
-        
         float r = 0.0f;
         float increment = 0.01f;
-
         //SHADERS END
 
         while (!glfwWindowShouldClose(window)) {
             
             glClear(GL_COLOR_BUFFER_BIT);
-
-            //GLCall(glUseProgram(shaders));
-            //GLCall(glUniform4f(location, r, 0.3f, 0.8f, 1.0f));
-
-            //GLCall(glBindVertexArray(vao));
+            
+            //BINDING AND CHANGING SHADERS
             va.Bind();
             ib.Bind();
-
-            GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
             if(r > 1.0f){
                 increment = -0.01f;
@@ -200,6 +187,12 @@ int main(){
             }
 
             r += increment;
+            GLCall(glUniform4f(location, r, 0.3f, 0.8f, 1.0f));
+
+            //RENDERING
+            GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
+
+            
 
             // Swap dei buffer
             glfwSwapBuffers(window);

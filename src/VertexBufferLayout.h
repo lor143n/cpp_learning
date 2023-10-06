@@ -47,7 +47,7 @@ class VertexBufferLayout{
             VertexBufferElement vbe({ count, type, norm });
             m_Elements.push_back(vbe);
 
-            m_Stride += VertexBufferElement::GetSizeOfType(type);
+            m_Stride += VertexBufferElement::GetSizeOfType(type) * count;
         }
 
         inline unsigned int GetStride() const 
