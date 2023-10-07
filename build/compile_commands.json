@@ -23,5 +23,10 @@
   "directory": "/home/lor3n/dev/cpp_learning/build",
   "command": "/usr/bin/g++   -g -o CMakeFiles/my_glfw_glew_project.dir/src/VertexArray.cpp.o -c /home/lor3n/dev/cpp_learning/src/VertexArray.cpp",
   "file": "/home/lor3n/dev/cpp_learning/src/VertexArray.cpp"
+},
+{
+  "directory": "/home/lor3n/dev/cpp_learning/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/my_glfw_glew_project.dir/src/Shader.cpp.o -c /home/lor3n/dev/cpp_learning/src/Shader.cpp",
+  "file": "/home/lor3n/dev/cpp_learning/src/Shader.cpp"
 }
 ]

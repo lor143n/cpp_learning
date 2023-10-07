@@ -2,100 +2,14 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-
 #include <iostream>
-#include <fstream>
 
 #include "Renderer.h"
 
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 #include "VertexArray.h"
-
-struct Shaders{
-
-    std::string vertexShader;
-    std::string fragmentShader;
-};
-
-
-Shaders OpenAndReadShaders(const std::string& vertexPath, const std::string& fragmentPath){
-
-    std::string vertexShader;
-    std::string fragmentShader;
-
-    std::ifstream vertexFile;
-    std::ifstream fragmentFile;
-
-    vertexFile.open(vertexPath);
-    fragmentFile.open(fragmentPath);
-
-    if(!vertexFile.is_open()){
-
-        std::cout << "wrong path!";
-    }
-
-    vertexShader.assign(
-        (std::istreambuf_iterator<char>(vertexFile)),
-        (std::istreambuf_iterator<char>())
-    );
-
-    fragmentShader.assign(
-        (std::istreambuf_iterator<char>(fragmentFile)),
-        (std::istreambuf_iterator<char>())
-    );
-
-    return {vertexShader, fragmentShader};
-}
-
-
-static unsigned int CompileShader(unsigned int type, const std::string& source){
-
-    unsigned int id = glCreateShader(type);
-    const char* src = source.c_str();
-    glShaderSource(id, 1, &src, nullptr);
-    glCompileShader(id);
-
-    // error handling
-    int res;
-    glGetShaderiv(id, GL_COMPILE_STATUS, &res);
-    if(!res){ //you can use GL_FALSE
-
-        int length;
-        glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
-        char* message = (char*) alloca(length*sizeof(char));
-
-        glGetShaderInfoLog(id, length, &length, message);
-        std::cout << "Failed to compile" << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << "shader!" << std::endl; 
-        std::cout << message << std::endl;
-        glDeleteShader(id);
-
-        return 0;
-    }
-
-
-    return id;
-}
-
-
-static unsigned int CreateShader(const std::string& vertexShader,const std::string& fragShader){
-
-    unsigned int program = glCreateProgram();
-
-    unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader);
-    unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragShader);
-
-    glAttachShader(program, vs);
-    glAttachShader(program, fs);
-    glLinkProgram(program);
-    glValidateProgram(program);
-
-    glDeleteShader(vs);
-    glDeleteShader(fs);
-
-    return program;
-}
-
+#include "Shader.h"
 
 
 int main(){
@@ -133,10 +47,10 @@ int main(){
 
         //VERTEX-INDEX DATA START
         float positions[10] = {
-            -1.0f, 1.0f,    //0
+            -0.1f, 0.5f,    //0
             1.0f, 1.0f,     //1
             -1.0f, -1.0f,   //2
-            1.0f, -1.0f,    //3  
+            0.5f, -0.5f,    //3  
             0.0f, 0.0f      //4
         };
 
@@ -159,14 +73,9 @@ int main(){
         //VERTEX ARRAY - VERTEX BUFFER - INDEX ARRAY END
 
         //SHADERS START
-        Shaders myShaders = OpenAndReadShaders("/home/lor3n/dev/cpp_learning/res/shaders/vertex.shader","/home/lor3n/dev/cpp_learning/res/shaders/fragment.shader");
-        
-        unsigned int shaders = CreateShader(myShaders.vertexShader, myShaders.fragmentShader);
-        GLCall(glUseProgram(shaders));
-
-        int location = glGetUniformLocation(shaders, "u_Color");
-        ASSERT(location != -1);
-        GLCall(glUniform4f(location, 0.8f, 0.3f, 0.8f, 1.0f));
+        Shader myShader("/home/lor3n/dev/cpp_learning/res/shaders/vertex.shader","/home/lor3n/dev/cpp_learning/res/shaders/fragment.shader");
+        myShader.Bind();
+        myShader.SetUniform4f("u_Color", 0.8f, 0.3f, 0.8f, 1.0f);
 
         float r = 0.0f;
         float increment = 0.01f;
@@ -179,6 +88,7 @@ int main(){
             //BINDING AND CHANGING SHADERS
             va.Bind();
             ib.Bind();
+            myShader.Bind();
 
             if(r > 1.0f){
                 increment = -0.01f;
@@ -187,7 +97,7 @@ int main(){
             }
 
             r += increment;
-            GLCall(glUniform4f(location, r, 0.3f, 0.8f, 1.0f));
+            myShader.SetUniform4f("u_Color", r, 0.3f, 0.8f, 1.0f);
 
             //RENDERING
             GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
@@ -199,8 +109,6 @@ int main(){
 
             glfwPollEvents();
         }
-
-        glDeleteProgram(shaders);
 
     }
 

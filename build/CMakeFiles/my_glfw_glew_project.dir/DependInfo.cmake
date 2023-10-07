@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/lor3n/dev/cpp_learning/src/Application.cpp" "CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o" "gcc" "CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o.d"
   "/home/lor3n/dev/cpp_learning/src/IndexBuffer.cpp" "CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o" "gcc" "CMakeFiles/my_glfw_glew_project.dir/src/IndexBuffer.cpp.o.d"
   "/home/lor3n/dev/cpp_learning/src/Renderer.cpp" "CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o" "gcc" "CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.o.d"
+  "/home/lor3n/dev/cpp_learning/src/Shader.cpp" "CMakeFiles/my_glfw_glew_project.dir/src/Shader.cpp.o" "gcc" "CMakeFiles/my_glfw_glew_project.dir/src/Shader.cpp.o.d"
   "/home/lor3n/dev/cpp_learning/src/VertexArray.cpp" "CMakeFiles/my_glfw_glew_project.dir/src/VertexArray.cpp.o" "gcc" "CMakeFiles/my_glfw_glew_project.dir/src/VertexArray.cpp.o.d"
   "/home/lor3n/dev/cpp_learning/src/VertexBuffer.cpp" "CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o" "gcc" "CMakeFiles/my_glfw_glew_project.dir/src/VertexBuffer.cpp.o.d"
   )

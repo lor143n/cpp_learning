@@ -201,6 +201,30 @@ src/Renderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_glfw_glew_project.dir/build.make CMakeFiles/my_glfw_glew_project.dir/src/Renderer.cpp.s
 .PHONY : src/Renderer.cpp.s
 
+src/Shader.o: src/Shader.cpp.o
+.PHONY : src/Shader.o
+
+# target to build an object file
+src/Shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_glfw_glew_project.dir/build.make CMakeFiles/my_glfw_glew_project.dir/src/Shader.cpp.o
+.PHONY : src/Shader.cpp.o
+
+src/Shader.i: src/Shader.cpp.i
+.PHONY : src/Shader.i
+
+# target to preprocess a source file
+src/Shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_glfw_glew_project.dir/build.make CMakeFiles/my_glfw_glew_project.dir/src/Shader.cpp.i
+.PHONY : src/Shader.cpp.i
+
+src/Shader.s: src/Shader.cpp.s
+.PHONY : src/Shader.s
+
+# target to generate assembly for a file
+src/Shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_glfw_glew_project.dir/build.make CMakeFiles/my_glfw_glew_project.dir/src/Shader.cpp.s
+.PHONY : src/Shader.cpp.s
+
 src/VertexArray.o: src/VertexArray.cpp.o
 .PHONY : src/VertexArray.o
 
@@ -267,6 +291,9 @@ help:
 	@echo "... src/Renderer.o"
 	@echo "... src/Renderer.i"
 	@echo "... src/Renderer.s"
+	@echo "... src/Shader.o"
+	@echo "... src/Shader.i"
+	@echo "... src/Shader.s"
 	@echo "... src/VertexArray.o"
 	@echo "... src/VertexArray.i"
 	@echo "... src/VertexArray.s"
