@@ -154,4 +154,12 @@ CMakeFiles/my_glfw_glew_project.dir/src/Shader.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc \
  /home/lor3n/dev/cpp_learning/src/Renderer.h /usr/include/GL/glew.h \
- /usr/include/c++/11/cstddef /usr/include/GL/glu.h /usr/include/GL/gl.h
+ /usr/include/c++/11/cstddef /usr/include/GL/glu.h /usr/include/GL/gl.h \
+ /home/lor3n/dev/cpp_learning/src/VertexArray.h \
+ /home/lor3n/dev/cpp_learning/src/VertexBuffer.h \
+ /home/lor3n/dev/cpp_learning/src/VertexBufferLayout.h \
+ /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
+ /usr/include/c++/11/bits/stl_vector.h \
+ /usr/include/c++/11/bits/stl_bvector.h \
+ /usr/include/c++/11/bits/vector.tcc \
+ /home/lor3n/dev/cpp_learning/src/IndexBuffer.h

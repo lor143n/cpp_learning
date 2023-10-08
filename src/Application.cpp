@@ -60,54 +60,46 @@ int main(){
         };
         //VERTEX-INDEX DATA END
 
-        //VERTEX ARRAY - VERTEX BUFFER - INDEX ARRAY START
-        VertexBuffer vb(positions, 5 * 2 * sizeof(float));
+        Renderer renderer;
 
+        VertexBuffer vb(positions, 5 * 2 * sizeof(float));
         VertexArray va;
         VertexBufferLayout layout;
         layout.Push(2, GL_FLOAT);
         va.AddBuffer(vb, layout);
-        va.Bind();
 
         IndexBuffer ib(indices, 6);
-        //VERTEX ARRAY - VERTEX BUFFER - INDEX ARRAY END
 
-        //SHADERS START
         Shader myShader("/home/lor3n/dev/cpp_learning/res/shaders/vertex.shader","/home/lor3n/dev/cpp_learning/res/shaders/fragment.shader");
-        myShader.Bind();
-        myShader.SetUniform4f("u_Color", 0.8f, 0.3f, 0.8f, 1.0f);
 
         float r = 0.0f;
         float increment = 0.01f;
-        //SHADERS END
 
+        va.Unbind();
+        ib.Unbind();
+        myShader.Bind();
         while (!glfwWindowShouldClose(window)) {
             
-            glClear(GL_COLOR_BUFFER_BIT);
-            
-            //BINDING AND CHANGING SHADERS
-            va.Bind();
-            ib.Bind();
-            myShader.Bind();
+            renderer.Clear();
+
+            myShader.SetUniform4f("u_Color", r, 0.3f, 0.8f, 1.0f);
+
+            //Draw Call
+            renderer.Draw(va, ib, myShader);
 
             if(r > 1.0f){
                 increment = -0.01f;
             } else if (r < 0.0f){
                 increment = 0.01f;
             }
-
             r += increment;
-            myShader.SetUniform4f("u_Color", r, 0.3f, 0.8f, 1.0f);
-
-            //RENDERING
-            GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
             
 
-            // Swap dei buffer
+            //Buffers Swap
             glfwSwapBuffers(window);
-
             glfwPollEvents();
+
         }
 
     }

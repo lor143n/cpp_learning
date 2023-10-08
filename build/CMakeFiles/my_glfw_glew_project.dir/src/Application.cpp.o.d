@@ -151,12 +151,12 @@ CMakeFiles/my_glfw_glew_project.dir/src/Application.cpp.o: \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
  /home/lor3n/dev/cpp_learning/src/Renderer.h \
- /home/lor3n/dev/cpp_learning/src/VertexBuffer.h \
- /home/lor3n/dev/cpp_learning/src/IndexBuffer.h \
  /home/lor3n/dev/cpp_learning/src/VertexArray.h \
+ /home/lor3n/dev/cpp_learning/src/VertexBuffer.h \
  /home/lor3n/dev/cpp_learning/src/VertexBufferLayout.h \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
+ /home/lor3n/dev/cpp_learning/src/IndexBuffer.h \
  /home/lor3n/dev/cpp_learning/src/Shader.h
